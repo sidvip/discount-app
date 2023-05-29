@@ -1,0 +1,23 @@
+.discount-type {
+    border-radius: 4px;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #EAEAEA;
+    color: black;
+}
+
+.circle {
+    background-color: white;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.selected {
+    background-color: #26B7CD;
+    color: white;
+}

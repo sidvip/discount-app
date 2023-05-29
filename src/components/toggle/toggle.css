@@ -1,0 +1,29 @@
+.base {
+    width: 60px;
+    height: 30px;
+    background-color: var(--skyblue);
+    padding: 4px;
+    display: flex;
+    position: relative;
+    /* align-items: center; */
+}
+
+.closed {
+    background-color: var(--grey);
+}
+
+.switch {
+    position: absolute;
+    background-color: white;
+    top: 4px;
+    left: 4px;
+    bottom: 4px;
+    width: 22px;
+    transition: left;
+    transition-duration: 0.5s;
+}
+
+.switch-move {
+    left: 34px;
+}
+
