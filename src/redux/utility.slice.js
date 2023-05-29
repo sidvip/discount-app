@@ -114,7 +114,7 @@ export const utilitySlice = createSlice({
         updateList: (state, action) => {
             state.discountList.push(action.payload);
         },
-        deleteItem: (state, action) => {
+        modifyList: (state, action) => {
             state.discountList = action.payload;
         },
         updateSelectedDiscount: (state, action) => {
@@ -129,11 +129,14 @@ export const utilitySlice = createSlice({
                 ...state.discountForm,
                 ...action.payload
             };
+        },
+        resetForm: (state) => {
+            state.discountForm = initialState.discountForm;
         }
     },
 })
 
-export const { updateList, updateSelectedDiscount, addDiscountFormDetails, deleteItem } = utilitySlice.actions;
+export const { updateList, updateSelectedDiscount, addDiscountFormDetails, modifyList, resetForm } = utilitySlice.actions;
 export const u = (state) => state.utility;
 
 export default utilitySlice.reducer;

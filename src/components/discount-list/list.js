@@ -92,7 +92,6 @@ export default function DiscountList() {
                         variant="body2"
                         style={{ color: '#24B7CD' }}
                         onClick={() => {
-                            console.info("I'm a button.");
                             setFormOpen(true);
                         }}
                         underline="none"

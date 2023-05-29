@@ -7,7 +7,7 @@ import './discount-form.css';
 import { Link, Button } from "@mui/material";
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addDiscountFormDetails, u, updateList } from '../../redux/utility.slice';
+import { addDiscountFormDetails, modifyList, resetForm, u, updateList } from '../../redux/utility.slice';
 
 const DISCOUNT_TYPES = {
     'monthly': 'monthly',
@@ -76,7 +76,7 @@ function FormRadioOption() {
 
 export default function DiscountForm({ isOpen, onClose }) {
 
-    const { discountForm } = useSelector(u);
+    const { discountForm, discountList } = useSelector(u);
     const [isWarning, setWarned] = useState(false);
     const dispatch = useDispatch();
 
@@ -100,6 +100,7 @@ export default function DiscountForm({ isOpen, onClose }) {
                     offer: discountForm.discount + ' ' + discountForm.discountType + ' ' + DISCOUNT_TYPES[discountForm.priceCategory]
                 }
             }));
+            dispatch(resetForm());
             onClose();
         } else {
             setWarned(true);
@@ -107,7 +108,15 @@ export default function DiscountForm({ isOpen, onClose }) {
     }
 
     function editDiscount() {
-
+        dispatch(modifyList(discountList.map((ele) => {
+            if (ele.id === discountForm.id) {
+                return discountForm;
+            } else {
+                return ele;
+            }
+        })));
+        dispatch(resetForm());
+        onClose();
     }
 
     return (

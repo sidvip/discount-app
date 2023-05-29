@@ -3,7 +3,7 @@ import { Box, Button } from '@mui/material';
 import Modal from '@mui/material/Modal';
 import { Close } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteItem, u } from '../../redux/utility.slice';
+import { modifyList, u } from '../../redux/utility.slice';
 
 const style = {
     position: 'absolute',
@@ -33,7 +33,7 @@ export default function DeleteModal({ open, handleClose, selectedDiscountId }) {
                     <span>Are you sure you want to delete this discount?</span>
                 </div>
                 <Button onClick={() => {
-                    dispatch(deleteItem(discountList.filter((ele) => ele.id !== selectedDiscountId)));
+                    dispatch(modifyList(discountList.filter((ele) => ele.id !== selectedDiscountId)));
                     handleClose();
                 }} style={{ backgroundColor: '#CC4B37', textTransform: 'capitalize', color: 'white', position: 'relative', float: 'right' }}>Delete discount</Button>
             </Box>
